@@ -1,0 +1,973 @@
+# Opgave: Implementér website ud fra Figma i PHPStorm
+
+Du er en professionel frontendudvikler.
+
+Læs hele projektets `AGENTS.md`, før du foretager nogen ændringer.
+
+`AGENTS.md` har højeste prioritet. Følg derefter denne prompt og Figma-designet.
+
+Hvis instruktioner er i konflikt, skal du følge prioriteten i `AGENTS.md`.
+
+Hvis nødvendig information mangler, eller Figma ikke kan tilgås via MCP, skal du stoppe den berørte del og forklare præcist, hvad der mangler. Gæt ikke.
+
+---
+
+# 1. Figma-grundlag
+
+Du har adgang til Figma via MCP.
+
+Brug disse Figma-noder som den primære designreference:
+
+## Sider – desktop og mobil
+
+https://www.figma.com/design/c6K4TZJAxMlrX3F7M0gCnJ/Untitled?node-id=6-2
+
+Node:
+`6:2` – `desktop-and-mobile`
+
+## Komponenter, styles og øvrige elementer
+
+https://www.figma.com/design/c6K4TZJAxMlrX3F7M0gCnJ/male-og-tegnekurser?node-id=43-1313
+
+Node:
+`43:1313` – `komponenter-til-prompt`
+
+Før du skriver kode:
+
+1. Kontrollér, at begge Figma-noder kan læses via MCP.
+2. Undersøg desktop- og mobilframes.
+3. Undersøg komponentområdet og styles.
+4. Identificér billeder, SVG'er, ikoner, logoer og andre assets.
+5. Undersøg eksisterende projektfiler.
+6. Undersøg `assets/fonts/`, før du implementerer typografi.
+
+Hvis Figma ikke kan læses, skal du stoppe uden at implementere designet.
+
+Brug ikke screenshots af Figma som website-assets.
+
+---
+
+# 2. Formål
+
+Implementér et fungerende, responsivt website for male- og tegnekurser baseret på Figma-designet.
+
+Projektet består af fem sider:
+
+1. landingpage
+2. book
+3. betaling
+4. materialeliste
+5. om Sarah
+
+Siderne skal fungere som ét sammenhængende website, hvor brugeren kan navigere mellem dem.
+
+Der skal ikke implementeres:
+
+- backend
+- database
+- CMS
+- betalingsgateway
+- tredjepartsbiblioteker
+- frameworks
+- pakker
+- preprocessorer
+
+Brug:
+
+- HTML5
+- CSS3
+- almindelig JavaScript kun hvor nødvendigt
+
+---
+
+# 3. Filstruktur
+
+Brug følgende HTML-filer:
+
+/index.html
+/book.html
+/betaling.html
+/materialeliste.html
+/om-sarah.html
+
+Følg ellers projektstrukturen i `AGENTS.md`.
+
+Placér relevante filer under:
+
+/assets/css/
+/assets/js/
+/assets/images/
+/assets/fonts/
+
+Brug relative filstier.
+
+Brug som udgangspunkt én fælles stylesheet-struktur frem for at duplikere næsten identiske CSS-regler mellem siderne.
+
+---
+
+# 3A. Hosting og deployment
+
+Websitet skal kunne uploades direkte til et almindeligt webhotel som et statisk website.
+
+Der må ikke være afhængigheder til:
+
+- lokal development server
+- Node.js
+- npm
+- build-proces
+- PHP
+- database
+- server-side routing
+
+Brug relative filstier til interne sider og lokale assets, så websitet fungerer efter upload af projektets filer til webhotellets webrod.
+
+`index.html` skal fungere som websitetets startside.
+
+Kontrollér inden afslutning, at:
+
+- alle interne links bruger korrekte relative stier
+- CSS, JavaScript, billeder, fonte, ikoner og SVG'er indlæses via korrekte relative stier
+- der ikke findes referencer til lokale filstier som `file:///`, PHPStorm-stier eller midlertidige Figma-URL'er
+- websitet ikke kræver en lokal udviklingsserver for at fungere
+- hele websitet kan deployes ved at uploade HTML-filerne og `assets/`-mappen til webhotellets webrod
+
+---
+
+# 4. Figma-referencebredder og responsivitet
+
+Figma-referencebredderne er:
+
+Desktop:
+`1440px`
+
+Mobil:
+`402px`
+
+Disse er visuelle referencepunkter og må ikke implementeres som faste viewportbredder.
+
+Følg reglerne om responsivitet i `AGENTS.md`.
+
+Det betyder blandt andet:
+
+- implementér et flydende responsivt layout
+- designet skal fungere stabilt mellem desktop og mobil
+- tablet og mindre laptops skal også fungere
+- vælg breakpoints efter layoutets faktiske behov
+- undgå overlap
+- undgå utilsigtet horisontal scrolling på hele siden
+- billeder skal være responsive
+- tekst skal kunne reflowe korrekt
+- ord må ikke brydes tilfældigt
+- brug ikke unødvendig orddeling eller bindestreger
+
+Desktop- og mobilframes er de vigtigste visuelle referencepunkter.
+
+Bevar Figma-layoutets:
+
+- proportioner
+- spacing
+- alignment
+- rækkefølge
+- typografi
+- farver
+- billedplacering
+- komponentstørrelser
+
+så tæt som praktisk muligt.
+
+---
+
+# 5. Sidestruktur
+
+Brug de konkrete Figma-frames som grundlag.
+
+## index.html – Landingpage
+
+Desktop-frame:
+`Landingpage`
+
+Mobil-frame:
+`Landingpage-mobile`
+
+Implementér de sektioner, der findes i Figma, herunder:
+
+- header
+- hero/header-image
+- om kurset
+- kurser
+- materialevalg
+- om Sarah
+- testimonials
+- footer
+
+Bevar desktop- og mobilforskellene fra Figma.
+
+Hvis Kurser eller Testimonials vises som vandret scroll på mobil, skal denne funktionalitet bevares.
+
+Scroll må kun foregå inde i den relevante sektion.
+
+## book.html
+
+Desktop-frame:
+`book`
+
+Mobil-frame:
+`Book-mobile`
+
+Indhold omfatter blandt andet:
+
+- header
+- kursustyper/kursusoversigt
+- booking-CTA'er
+- testimonials
+- footer
+
+Genbrug kursuskomponenter og styles, hvor det giver mening.
+
+## materialeliste.html
+
+Desktop-frame:
+`materialeliste`
+
+Mobil-frame:
+`materialer-mobile`
+
+Indhold omfatter blandt andet:
+
+- header
+- materialeliste
+- materialepakker
+- favoritbrands
+- relevante CTA'er
+- footer
+
+Følg den konkrete rækkefølge og placering i Figma.
+
+## betaling.html
+
+Desktop-frame:
+`Betaling-Desktop`
+
+Mobil-frame:
+`Betaling-mobile`
+
+Siden skal visuelt fungere som betalingsside, men der skal IKKE foretages reel betaling.
+
+Formularen må ikke:
+
+- sende betalingsdata
+- forbinde til en betalingsgateway
+- sende oplysninger til backend
+- gemme person- eller kortdata
+
+Den afsluttende betalings-CTA skal være visuelt fungerende, men skal ikke udføre reel betaling eller databehandling.
+
+Implementér eksisterende formularfelter semantisk og med labels.
+
+## om-sarah.html
+
+Desktop-frame:
+`omsarah-desktop`
+
+Mobil-frame:
+`omsarah-mobile`
+
+Implementér indholdet efter Figma og genbrug header/footer.
+
+---
+
+# 6. Prioriteret brugerrejse
+
+Denne brugerrejse skal fungere:
+
+`index.html`
+↓
+CTA `"omkurset"`
+↓
+`book.html`
+↓
+CTA `"book nybegynder intro"`
+↓
+`betaling.html`
+
+Kontrollér specifikt denne rejse efter implementeringen.
+
+Andre egentlige booking-CTA'er på Book-siden skal også linke til:
+
+`betaling.html`
+
+medmindre Figma eksplicit viser en anden destination.
+
+---
+
+# 7. Header-navigation
+
+Brug disse destinationer:
+
+Logo:
+`index.html`
+
+Kurser:
+`book.html`
+
+materialer:
+`materialeliste.html`
+
+Priser:
+`book.html`
+
+Om Sara:
+`om-sarah.html`
+
+Bevar tekst, casing, spacing og visuelt udtryk fra Figma.
+
+Opfind ikke yderligere sider.
+
+---
+
+# 8. Mobilmenu
+
+Mobilheaderen skal have en fungerende burgermenu.
+
+Brug den grundlæggende åbne/lukke-mekanisme fra W3Schools' "Collapse Sidebar" som teknisk reference:
+
+https://www.w3schools.com/howto/howto_js_collapse_sidebar.asp
+
+Du må IKKE kopiere W3Schools' visuelle styling.
+
+Menuens visuelle design skal følge Figma præcist med hensyn til:
+
+- typografi
+- farver
+- spacing
+- størrelse
+- logo
+- ikonplacering
+- navigation
+- øvrigt visuelt udtryk
+
+## Adfærd
+
+Menuen skal:
+
+- lægge sig oven på siden
+- IKKE skubbe sidens indhold mod højre
+- åbnes via mobilheaderens menuikon
+- kunne lukkes ved klik på siden ved siden af menuen
+
+Implementér en transparent klikflade/backdrop bag menuen, så klik uden for menuen lukker den.
+
+Backdrop må ikke ændre designets visuelle udtryk.
+
+Et klik på backdrop må ikke samtidig aktivere elementer nedenunder.
+
+## Implementering
+
+Hold mobilmenuens JavaScript:
+
+- kort
+- isoleret
+- overskueligt
+- let at fjerne igen
+
+Brug event listeners.
+
+Brug ikke inline `onclick`.
+
+Bevar:
+
+- tastaturbetjening
+- synlig fokusmarkering
+- relevant `aria-expanded`
+- relevant `aria-controls`
+
+Tilføj ikke animationer eller effekter, der ikke passer til Figma.
+
+---
+
+# 9. Genbrugelige komponenter
+
+Identificér og genbrug fælles mønstre fra Figma.
+
+Som minimum:
+
+1. header/menu
+2. footer
+3. CTA-knapper
+4. logo
+5. farvestyles
+6. typografistyles
+7. ikoner
+8. cards
+9. testimonials
+10. kursuskort
+11. materiale-/informationskort
+
+Undersøg selv, om Figma indeholder andre relevante elementer, der bør behandles som genbrugelige mønstre.
+
+Da projektet består af statiske HTML-filer uden template-system, må header/footer markup gerne gentages i HTML-filerne.
+
+Genbrug skal primært ske gennem:
+
+- fælles CSS-klasser
+- CSS custom properties
+- fælles assets
+- ens HTML-mønstre
+- konsekvent navngivning
+
+Tilføj ikke JavaScript-includes, template engines eller andre teknologier alene for at undgå HTML-gentagelse.
+
+---
+
+# 10. CTA-varianter
+
+Figma indeholder et `CTA-btn` component set med blandt andet:
+
+## Transparent CTA
+Reference:
+ca. `122 × 19px`
+
+Varianter inkluderer:
+
+- default
+- hover
+- click
+
+## Pink CTA
+Reference:
+ca. `129 × 29px`
+
+## Blå CTA
+Reference:
+ca. `150 × 39px`
+
+Brug den konkrete variant og størrelse, der passer til det enkelte Figma-element.
+
+Lav ikke én universel knappestørrelse, hvis Figma tydeligt viser forskellige varianter.
+
+---
+
+# 11. Farver
+
+Brug Figma-styles som designgrundlag.
+
+Verificerede styles omfatter:
+
+--cream-main: #F6C988
+--cream-light: #F9DEAF
+--cream-dark: #D2A360
+--cream-subtle: #FFF2DB
+
+--rasberry-main: #FD8668
+--rasberry-dark: #C25236
+
+--cherry-light: #EAA695
+--cherry-subtle: #FED0C4
+
+--sky-blue-main: #6B8DCC
+--skyblue-darker: #435F93
+--skyblue-light: #A5C5FF
+--skyblue-subtle: #C4D9FF
+
+--coal-1: #19191A
+--coal-2: #6B7588
+--coal-3: #626B77
+--coal-4: #C7C9D9
+
+--offwhite-1: #E3E3E3
+--offwhite-2: #EBEBEB
+--offwhite-3: #C7C9D9
+--offwhite-4: #FFF7EA
+
+Brug CSS custom properties, hvor det giver en enklere og mere konsekvent struktur.
+
+Farver må kun anvendes, hvor de svarer til Figma-designet.
+
+Opfind ikke nye farver.
+
+Hvis en Figma-farve giver et tilgængelighedsproblem, følg proceduren i `AGENTS.md` og ændr den ikke automatisk.
+
+---
+
+# 12. Typografi
+
+Brug Figma-styles som udgangspunkt.
+
+Verificerede typografistyles omfatter:
+
+h0:
+- Cormorant Garamond
+- Bold
+- 128px
+- line-height 66px
+
+h1:
+- Cormorant Garamond
+- Bold
+- 64px
+- line-height 66px
+
+H2:
+- Cormorant Garamond
+- Bold
+- 48px
+- line-height 44px
+
+h3:
+- Cormorant Garamond
+- Bold
+- 32px
+- line-height 34px
+
+h4:
+- Cormorant Garamond
+- Bold
+- 24px
+- line-height 44px
+
+h5:
+- Cormorant Garamond
+- SemiBold
+- 20px
+- line-height 22px
+
+h6:
+- Cormorant Garamond
+- SemiBold
+- 16px
+- line-height 18px
+
+body-xl:
+- Poppins
+- Regular
+- 32px
+- line-height 26px
+
+body L:
+- Poppins
+- Regular
+- 24px
+- line-height 26px
+
+body m:
+- Poppins
+- Regular
+- 20px
+- line-height 26px
+
+Body normal:
+- Poppins
+- Regular
+- 16px
+- line-height ca. 118%
+
+body-normal-Bold:
+- Poppins
+- Bold
+- 16px
+- line-height ca. 118%
+
+body s:
+- Poppins
+- Regular
+- 14px
+- line-height 20px
+
+body-xs:
+- Poppins
+- Regular
+- 12px
+- line-height ca. 170%
+
+Brug den style, der faktisk er anvendt på det relevante Figma-element.
+
+Undgå at vælge tekststørrelse ud fra HTML-tag alene.
+
+Semantisk HTML og visuel typography er to separate hensyn.
+
+---
+
+# 13. Vigtig fontregel
+
+Bevar som udgangspunkt de fontfamilier, der allerede bruges i Figma.
+
+Der er kun følgende font-substitution:
+
+`Inter → Poppins`
+
+`Manrope → Poppins`
+
+Når du ændrer Inter eller Manrope til Poppins:
+
+- bevar den relevante tekststørrelse
+- bevar vægt så tæt på Figma-stilen som muligt
+- bevar line-height
+- bevar spacing
+- bevar placering
+- bevar teksthierarkiet
+
+Ændr IKKE andre fontfamilier automatisk.
+
+Fx skal en font, der ikke er Inter eller Manrope, ikke erstattes med Poppins blot fordi den ikke er en overskrift.
+
+---
+
+# 14. Testimonials – særlig typografiregel
+
+Testimonials består af forskellige tekstdele.
+
+## Første tekstdel / selve citatet
+
+Brug:
+
+`Cormorant Garamond`
+
+Følg den konkrete Figma-style for størrelse, vægt og line-height.
+
+Eksempel fra desktop kan være Cormorant Garamond Bold omkring 32px.
+
+Eksempel fra mobil kan være Cormorant Garamond SemiBold omkring 16px.
+
+Brug den konkrete frame som reference.
+
+## Sidste tekstdel / personoplysninger
+
+Navn, rolle og efterfølgende testimonial-oplysninger skal bruge:
+
+`Poppins`
+
+Hvis disse layers i Figma står som Manrope eller Inter, erstattes fontfamilien med Poppins.
+
+Bevar den eksisterende:
+
+- tekststørrelse
+- vægt
+- line-height
+- spacing
+- position
+
+Ændr ikke testimonial-citatet til Poppins.
+
+---
+
+# 15. Manglende fonte
+
+Kontrollér først:
+
+`assets/fonts/`
+
+Hvis en font, der kræves af Figma, ikke findes lokalt:
+
+1. stop implementeringen af den berørte typografi
+2. oplys præcis hvilken fontfamilie der mangler
+3. oplys hvilke vægte/styles der er nødvendige
+
+Hent ikke automatisk fonten fra Google Fonts eller anden ekstern tjeneste.
+
+Erstat ikke fonten med en tilfældig systemfont.
+
+---
+
+# 16. Assets
+
+Brug de faktiske design-assets fra Figma, hvor de er tilgængelige:
+
+- billeder
+- logo
+- ikoner
+- SVG'er
+- øvrige statiske assets
+
+Gem dem lokalt i projektets eksisterende `assets/`-struktur.
+
+Den færdige kode må ikke indeholde midlertidige Figma asset-URL'er.
+
+Du må ikke:
+
+- tegne Figma-assets på ny, hvis det korrekte asset kan hentes
+- erstatte billeder med vilkårlige alternativer
+- opfinde illustrationer
+- bruge screenshots af hele Figma-sektioner som implementation
+
+Angiv `width` og `height` på billeder.
+
+Brug lazy loading på billeder under den første synlige viewport, hvor relevant.
+
+---
+
+# 17. Spacing og størrelser
+
+Udled margin, padding, gaps, bredder og højder fra Figma.
+
+Hvis designet indeholder mange næsten identiske afstandsværdier, må du samle dem i et mindre sæt genbrugelige CSS-variabler.
+
+Vælg i så fald den mest relevante eller hyppigst anvendte værdi.
+
+Dette må kun ske, hvis det ikke skaber en synlig afvigelse fra Figma.
+
+Brug ikke vilkårlige standardværdier, hvis Figma giver en tydelig reference.
+
+---
+
+# 18. Semantisk HTML
+
+Brug semantisk HTML5.
+
+Brug relevante elementer som:
+
+<header>
+<nav>
+<main>
+<section>
+<article>
+<footer>
+
+Brug kun elementerne, hvor deres semantik passer til indholdet.
+
+Hver side skal have:
+
+- præcis én meningsfuld `<h1>`
+- logisk heading hierarchy
+- `lang="da"`
+- beskrivende links
+- korrekte labels til formularfelter
+- relevante alt-tekster
+
+Brug samme semantiske HTML-struktur til desktop og mobil, hvor det er muligt.
+
+Responsivitet skal primært håndteres med CSS.
+
+---
+
+# 19. Teknisk SEO
+
+Gør siderne teknisk klar til SEO, men skriv ikke ekstra SEO-indhold.
+
+Hver side skal have:
+
+- korrekt `<title>`
+- unik meta description
+- semantisk HTML
+- korrekt heading hierarchy
+- beskrivende links
+- billeders `width` og `height`
+- relevante alt-attributter
+
+Meta descriptions må formuleres ud fra eksisterende indhold fra Figma.
+
+Du må:
+
+- sammenfatte eksisterende tekst kort
+
+Du må ikke:
+
+- opfinde oplysninger
+- tilføje markedsføringspåstande
+- opfinde lokationer eller services
+
+Hvis Figma-indholdet ikke er tilstrækkeligt til en korrekt meta description, brug en tydelig placeholder.
+
+Tilføj ikke automatisk:
+
+- JSON-LD
+- canonical
+- Open Graph-data
+- tracking
+- analytics
+
+medmindre de nødvendige oplysninger allerede er kendte og `AGENTS.md` tillader det.
+
+---
+
+# 20. Tekstindhold
+
+Bevar teksten fra Figma.
+
+Ret ikke automatisk:
+
+- stavning
+- grammatik
+- formuleringer
+- navne
+- priser
+- datoer
+
+selv hvis du opdager en mulig fejl.
+
+Nævn eventuelle tydelige tekstfejl i slutopsummeringen i stedet for at ændre dem.
+
+Gæt aldrig manglende indhold.
+
+---
+
+# 21. JavaScript
+
+Brug kun JavaScript, hvor funktionaliteten ikke med rimelighed kan løses med HTML og CSS.
+
+I dette projekt forventes JavaScript primært at være relevant til mobilmenuen.
+
+Brug:
+
+- separat JS-fil
+- `addEventListener`
+- små fokuserede funktioner
+- DOM-existenskontrol
+
+Brug ikke:
+
+- inline handlers
+- globale variabler uden behov
+- frameworks
+- eksterne scripts
+
+Funktionaliteten skal fortsat være forståelig og let at fjerne.
+
+---
+
+# 22. Tilgængelighed
+
+Følg `AGENTS.md`.
+
+Kontrollér især:
+
+- tastaturbetjening
+- synlig fokusmarkering
+- logisk fokusorden
+- labels på formularfelter
+- alt-tekster
+- dekorative billeder med tom alt
+- at farve ikke er eneste betydningsbærer
+- `prefers-reduced-motion`, hvis der bruges bevægelse
+
+Ændr ikke Figma-farver automatisk pga. kontrast.
+
+Følg godkendelsesproceduren i `AGENTS.md`, hvis en ændring er nødvendig.
+
+---
+
+# 23. Fungerende navigation
+
+Kontrollér alle interne links.
+
+Som minimum skal følgende fungere:
+
+index.html → book.html
+book.html → betaling.html
+header → book.html
+header → materialeliste.html
+header → om-sarah.html
+logo → index.html
+
+Undgå døde links.
+
+Hvis en destination mangler i projektet og ikke er defineret her eller i Figma, skal du ikke opfinde en ny.
+
+---
+
+# 24. Visuel kontrol
+
+Efter implementeringen skal du sammenligne alle fem sider med deres respektive Figma-frames.
+
+Kontrollér både:
+
+Desktop:
+1440px-reference
+
+Mobil:
+402px-reference
+
+Kontrollér især:
+
+- layout
+- størrelse
+- spacing
+- typografi
+- fontfamilie
+- line-height
+- farver
+- billedeplacering
+- alignment
+- CTA'er
+- komponentstørrelser
+- header
+- footer
+- responsive skift
+- vandret scrolling
+- mobilmenu
+- testimonials
+
+Kontrollér også mindst én størrelse mellem desktop og mobil.
+
+Ret synlige fejl, som er inden for opgavens scope.
+
+---
+
+# 25. Test
+
+Kontrollér:
+
+- HTML-struktur
+- CSS
+- JavaScript
+- relative filstier
+- manglende assets
+- browserkonsol, hvis browser er tilgængelig
+- mobilnavigation
+- tastaturnavigation
+- formularlabels
+- billed-alt
+- responsive billeder
+- overlap
+- utilsigtet horizontal scrolling
+- den prioriterede brugerrejse
+- at websitet fortsat fungerer efter almindelig upload til et statisk webhotel
+
+Installer ikke nye testværktøjer eller pakker.
+
+---
+
+# 26. Begrænsninger
+
+Du må ikke:
+
+- ændre Figma-designet efter egen smag
+- opfinde designvalg
+- opfinde tekst
+- opfinde links
+- opfinde priser
+- opfinde kontaktoplysninger
+- opfinde kursusoplysninger
+- tilføje backend
+- tilføje database
+- tilføje frameworks
+- tilføje biblioteker
+- tilføje tredjepartsplugins
+- implementere reel betaling
+- hente eksterne fonte uden godkendelse
+- ændre andre dele af projektet uden behov
+- gøre løsningen afhængig af en lokal server eller build-proces
+
+Hvis noget er uklart, spørg i stedet for at gætte.
+
+---
+
+# 27. Slutrapport
+
+Når arbejdet er færdigt, giv en kort punktvis opsummering med:
+
+- oprettede filer
+- redigerede filer
+- implementerede sider
+- genbrugelige CSS-mønstre
+- brugte Figma-assets
+- mobilmenuens implementation
+- navigation og brugerrejse
+- responsive tests
+- visuel sammenligning med Figma
+- eventuelle forskelle fra Figma
+- eventuelle manglende fonte/assets
+- eventuelle tekstfejl observeret i Figma
+- kontrol af om projektet kan uploades direkte til et statisk webhotel
+- forhold der ikke kunne testes
+
+Udelad irrelevante punkter.
