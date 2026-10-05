@@ -209,8 +209,9 @@ h3, .h3 {
 }
 
 .cta-pink {
+  align-self: flex-start;
   background: var(--rasberry-main);
-  color: #3d3d3d;
+  color: var(--coal-1);
   min-height: 46px;
   padding: 10px 24px;
   font-size: 20px;
@@ -233,14 +234,6 @@ h3, .h3 {
   padding: 10px 24px;
   font-weight: 700;
   font-size: 16px;
-}
-
-.link-cta {
-  color: var(--skyblue-darker);
-);
-  font-size: 20px;
-  line-height: 26px;
-  white-space: nowrap;
 }
 
 .courses-home { padding-top: 42px; }
