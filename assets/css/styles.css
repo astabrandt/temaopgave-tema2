@@ -1,0 +1,513 @@
+:root {
+  --cream-main: #f6c988;
+  --cream-light: #f9deaf;
+  --cream-dark: #d2a360;
+  --cream-subtle: #fff2db;
+  --rasberry-main: #fd8668;
+  --rasberry-dark: #c25236;
+  --cherry-light: #eaa695;
+  --cherry-subtle: #fed0c4;
+  --sky-blue-main: #6b8dcc;
+  --skyblue-darker: #435f93;
+  --skyblue-light: #a5c5ff;
+  --skyblue-subtle: #c4d9ff;
+  --coal-1: #19191a;
+  --coal-2: #6b7588;
+  --coal-3: #626b77;
+  --coal-4: #c7c9d9;
+  --offwhite-1: #e3e3e3;
+  --offwhite-2: #ebebeb;
+  --offwhite-3: #c7c9d9;
+  --offwhite-4: #fff7ea;
+  --text: #120e0e;
+  --stroke: #acacac;
+  --content: min(100% - 60px, 1280px);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: #fff;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.18;
+}
+
+body.menu-open { overflow: hidden; }
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; text-decoration: none; }
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--sky-blue-main);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, p { margin: 0; }
+
+h1, .h1 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(48px, 4.45vw, 64px);
+  line-height: 1.03;
+  font-weight: 700;
+}
+
+h2, .h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(32px, 3.35vw, 48px);
+  line-height: .92;
+  font-weight: 700;
+}
+
+h3, .h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 32px;
+  line-height: 34px;
+  font-weight: 700;
+}
+
+.body-m { font-size: 20px; line-height: 26px; }
+.body-s { font-size: 14px; line-height: 20px; }
+.muted { color: var(--coal-3); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: 96px;
+  background: var(--cream-subtle);
+  box-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+
+.header-inner {
+  height: 100%;
+  width: min(100% - 120px, 1320px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 240px 1fr 120px;
+  align-items: center;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  position: relative;
+  width: 65px;
+  height: 65px;
+  flex: 0 0 auto;
+}
+
+.brand-mark img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.brand-mark .sw { inset: 20px auto auto 16px; width: 34px; height: 27px; }
+
+.brand-text {
+  width: 148px;
+  text-align: center;
+  color: #2a2a2a;
+}
+
+.brand-name {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.brand-subtitle {
+  font-size: 14px;
+  line-height: 20px;
+  font-style: italic;
+}
+
+.nav-list, .header-actions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.header-actions { justify-content: end; gap: 15px; }
+
+.menu-toggle, .mobile-drawer, .menu-backdrop { display: none; }
+
+.hero {
+  min-height: 772px;
+  background: url("../images/hero.png") center 31% / cover no-repeat;
+  display: flex;
+  align-items: flex-start;
+  padding: 218px 0 0 82px;
+}
+
+.hero-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(48px, 8.9vw, 128px);
+  line-height: .52;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  margin-top: 58px;
+  font-size: 32px;
+  line-height: 26px;
+}
+
+.section { width: var(--content); margin: 0 auto; }
+.landing-stack { padding: 80px 0 60px; display: flex; flex-direction: column; gap: 118px; }
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr minmax(360px, 596px);
+  gap: 0;
+  align-items: start;
+}
+
+.split.reverse { grid-template-columns: minmax(360px, 732px) 1fr; gap: 18px; }
+.split.material { grid-template-columns: minmax(430px, 566px) minmax(450px, 729px); justify-content: space-between; }
+
+.text-block { max-width: 757px; }
+.text-block h1, .text-block h2 { margin-bottom: 37px; }
+.text-block p + p { margin-top: 26px; }
+
+.image-card {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.image-card img { width: 100%; height: 100%; object-fit: cover; }
+.landing-about .image-card { height: 607px; }
+.material .image-card { height: 705px; }
+.sarah-split .image-card { height: 718px; }
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 20px;
+  font-family: "Poppins", Arial, sans-serif;
+  cursor: pointer;
+}
+
+.cta-pink {
+  background: #ffa7a7;
+  color: #3d3d3d;
+  min-height: 46px;
+  padding: 10px 24px;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.cta-small {
+  background: #ffa7a7;
+  color: #3d3d3d;
+  min-height: 29px;
+  padding: 5px 24px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.cta-blue {
+  background: var(--skyblue-subtle);
+  color: var(--coal-1);
+  min-height: 39px;
+  padding: 10px 24px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.link-cta {
+  color: #4169b4;
+  font-size: 20px;
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.courses-home { padding-top: 42px; }
+.courses-home h2 { margin-bottom: 0; }
+
+.course-feature {
+  display: grid;
+  grid-template-columns: 400px minmax(280px, 545px);
+  gap: 24px;
+  min-height: 400px;
+  align-items: center;
+}
+
+.course-feature.right {
+  grid-template-columns: minmax(280px, 545px) 400px;
+  justify-content: end;
+  text-align: right;
+}
+
+.course-bubble {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 66px;
+}
+
+.course-bubble img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .58;
+  border-radius: 50%;
+}
+
+.course-bubble h3 { position: relative; z-index: 1; }
+.course-copy { display: flex; flex-direction: column; gap: 24px; font-size: 20px; line-height: 26px; }
+
+.testimonials { padding: 0 0 60px; overflow: hidden; }
+.testimonials h2 { text-align: center; margin-bottom: 42px; }
+.testimonial-row { display: flex; gap: 26px; overflow-x: auto; padding-bottom: 4px; }
+
+.testimonial-card {
+  flex: 0 0 411px;
+  height: 578px;
+  background: var(--rasberry-main);
+  color: white;
+  padding: 142px 60px 60px;
+}
+
+.testimonial-card blockquote {
+  margin: 0 0 46px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 32px;
+  line-height: 34px;
+  font-weight: 700;
+}
+
+.testimonial-card cite {
+  display: block;
+  font-style: normal;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.testimonial-card span {
+  display: block;
+  margin-top: 4px;
+  color: var(--coal-1);
+  font-size: 16px;
+}
+
+.site-footer {
+  background: var(--cream-subtle);
+  min-height: 416px;
+  box-shadow: 0 0 4px rgba(0,0,0,.25);
+  display: flex;
+  align-items: center;
+}
+
+.footer-inner {
+  width: min(100% - 120px, 1280px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left { display: flex; flex-direction: column; gap: 26px; }
+.footer-columns { display: flex; gap: 57px; align-items: flex-start; }
+.footer-col { display: flex; flex-direction: column; gap: 22px; min-width: 76px; }
+.footer-title { font-weight: 700; color: var(--coal-1); }
+.footer-item { display: grid; grid-template-columns: 24px 1fr; gap: 16px; color: var(--coal-3); font-size: 12px; line-height: 1.7; }
+.footer-item img { width: 24px; height: 24px; }
+.footer-logo-large { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+.footer-logo-large .brand-mark { width: 209px; height: 209px; }
+.footer-logo-large .brand-mark .sw { inset: 64px auto auto 51px; width: 110px; height: 86px; }
+.socials { display: flex; gap: 13px; align-items: center; }
+.socials img { width: 24px; height: 24px; object-fit: contain; }
+
+.page-main { padding: 42px 0 76px; }
+.book-layout { display: grid; grid-template-columns: 626px 1fr; gap: 26px; align-items: start; }
+.course-list { margin-top: 85px; display: flex; flex-direction: column; gap: 56px; }
+.course-row { display: grid; grid-template-columns: 216px 1fr; gap: 111px; font-size: 20px; line-height: 26px; }
+.course-row strong { display: block; }
+.book-image { height: 1082px; border-radius: 20px; overflow: hidden; }
+.book-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.material-top { display: grid; grid-template-columns: 545px 1fr; gap: 82px; align-items: center; }
+.material-top .image-card { height: 648px; }
+.packages { margin-top: 137px; }
+.package-grid { margin-top: 42px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 120px; align-items: start; }
+.package-card { display: flex; flex-direction: column; gap: 12px; font-size: 20px; line-height: 26px; }
+.brands { margin-top: 137px; display: grid; grid-template-columns: 629px 1fr; gap: 27px; align-items: start; }
+.brands .image-card { height: 864px; }
+.brand-list-text { font-size: 20px; line-height: 26px; }
+.brand-list-text h2 { margin-bottom: 26px; }
+
+.about-page { display: grid; grid-template-columns: minmax(420px, 624px) 1fr; gap: 18px; align-items: start; }
+.about-page .image-card { height: 718px; }
+.about-text { max-width: 610px; font-size: 20px; line-height: 26px; }
+.about-text h1 { margin-bottom: 24px; }
+.about-text p + p { margin-top: 26px; }
+
+.checkout { display: grid; grid-template-columns: 572px 720px; justify-content: center; align-items: start; }
+.payment-panel { padding: 48px; border-radius: 8px; }
+.summary-panel { background: #f9fafa; border: 1px solid #d9d9d9; padding: 124px 108px 48px 66px; min-height: 652px; }
+.panel-title { font-size: 24px; line-height: 26px; padding-bottom: 16px; border-bottom: 1px solid var(--stroke); margin-bottom: 36px; }
+.field-group { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+.radio-row, .checkbox-row { display: flex; gap: 16px; align-items: center; }
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+label { font-size: 16px; }
+input[type="text"] { width: 100%; height: 46px; border: 1.5px solid var(--stroke); border-radius: 4px; padding: 12px 16px; font: inherit; color: var(--coal-1); }
+.payment-note { margin-top: 23px; color: var(--stroke); font-size: 14px; line-height: 22px; }
+.order-line { display: flex; justify-content: space-between; gap: 18px; padding: 24px 0; border-top: 1px solid var(--stroke); }
+.order-product { display: grid; grid-template-columns: 80px 1fr; gap: 16px; align-items: start; margin-bottom: 36px; }
+.order-product img, .add-on img { width: 80px; height: 89px; object-fit: cover; border-radius: 4px; }
+.add-on { display: grid; grid-template-columns: 1fr 70px; gap: 16px; align-items: start; margin-bottom: 36px; }
+.add-on img { width: 70px; height: 70px; }
+.total-price { font-family: "Cormorant Garamond", Georgia, serif; font-size: 48px; line-height: 44px; font-weight: 700; }
+
+@media (max-width: 900px) {
+  :root { --content: min(100% - 60px, 402px); }
+
+  .site-header { height: 64px; }
+  .header-inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 31px;
+  }
+  .site-header .brand-text, .desktop-nav, .header-actions { display: none; }
+  .brand-mark { width: 46px; height: 46px; }
+  .brand-mark .sw { inset: 14px auto auto 11px; width: 24px; height: 19px; }
+  .menu-toggle {
+    display: block;
+    width: 52px;
+    height: 27px;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    position: relative;
+  }
+  .menu-toggle span, .menu-toggle::before, .menu-toggle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 52px;
+    height: 3px;
+    background: var(--coal-1);
+  }
+  .menu-toggle::before { top: 0; }
+  .menu-toggle span { top: 12px; }
+  .menu-toggle::after { top: 24px; }
+  .mobile-drawer {
+    display: block;
+    position: fixed;
+    z-index: 40;
+    top: 64px;
+    left: 0;
+    width: min(310px, 82vw);
+    min-height: calc(100vh - 64px);
+    background: var(--cream-subtle);
+    padding: 30px;
+    box-shadow: 2px 0 8px rgba(0,0,0,.16);
+  }
+  .mobile-drawer[hidden], .menu-backdrop[hidden] { display: none; }
+  .mobile-drawer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 24px; font-size: 20px; }
+  .menu-backdrop {
+    display: block;
+    position: fixed;
+    z-index: 30;
+    inset: 64px 0 0 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .hero {
+    min-height: 263px;
+    padding: 103px 0 0 31px;
+    background-position: center 18%;
+  }
+  .hero-title { font-size: 48px; line-height: 44px; }
+  .hero-subtitle { margin-top: 6px; font-size: 16px; line-height: 1.18; }
+  .landing-stack { padding: 30px 0 36px; gap: 42px; }
+  .split, .split.reverse, .split.material, .book-layout, .material-top, .brands, .about-page, .checkout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .landing-about .image-card { display: none; }
+  .text-block h1, .text-block h2 { margin-bottom: 11px; }
+  .body-m, .text-block, .course-copy, .package-card, .brand-list-text, .about-text { font-size: 14px; line-height: 20px; }
+  .courses-home { padding-top: 0; }
+  .course-scroll { overflow-x: auto; margin-inline: -30px; padding-inline: 30px; }
+  .course-scroll {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  .course-feature, .course-feature.right {
+    display: flex;
+    flex: 0 0 295px;
+    min-height: auto;
+    width: max-content;
+    text-align: center;
+  }
+  .course-feature:not(:first-child) .course-copy { display: none; }
+  .course-bubble { width: 295px; height: 295px; padding: 51px; }
+  .course-bubble h3 { font-size: 20px; line-height: 22px; font-weight: 600; }
+  .course-copy { display: none; }
+  .material .image-card, .sarah-split .image-card { height: 206px; width: 100%; }
+  .sarah-split { flex-direction: column; }
+  .testimonials { padding-bottom: 30px; }
+  .testimonials h2 { margin-bottom: 42px; }
+  .testimonial-row { margin-inline: -30px; padding-inline: 30px; }
+  .testimonial-card { flex-basis: 239px; height: 227px; padding: 42px 28px; }
+  .testimonial-card blockquote { font-size: 16px; line-height: 18px; font-weight: 600; margin-bottom: 7px; }
+  .testimonial-card cite, .testimonial-card span { font-size: 14px; line-height: 20px; font-weight: 400; }
+  .testimonial-card cite { color: var(--offwhite-1); }
+
+  .site-footer { min-height: 416px; }
+  .footer-inner { width: calc(100% - 60px); align-items: flex-start; }
+  .footer-logo-large { display: none; }
+  .footer-columns { gap: 43px; }
+  .footer-item { font-size: 12px; }
+  .footer-left::before {
+    content: "";
+    width: 93px;
+    height: 93px;
+    background: url("../images/logo-bg-large.png") center/contain no-repeat;
+    display: block;
+  }
+
+  .page-main { padding: 24px 0 48px; }
+  .course-list { margin-top: 24px; gap: 24px; }
+  .course-row { grid-template-columns: 1fr; gap: 8px; font-size: 14px; line-height: 20px; }
+  .book-image { display: none; }
+  .material-top .image-card, .brands .image-card, .about-page .image-card { height: 259px; width: 100%; }
+  .package-grid { display: flex; flex-direction: column; gap: 24px; margin-top: 14px; }
+  .packages, .brands { margin-top: 42px; }
+  .brands .image-card { order: 2; }
+  .about-page .image-card { height: 332px; margin-inline: -30px; width: calc(100% + 60px); border-radius: 0; }
+  .checkout { gap: 0; }
+  .summary-panel, .payment-panel { padding: 48px 20px; width: 100%; min-height: 0; }
+  .summary-panel { background: #fff; border: 0; order: -1; }
+  .field-grid { gap: 21px; }
+  .order-product { grid-template-columns: 70px 1fr; }
+  .order-product img { width: 70px; height: 70px; }
+  .total-price { font-size: 20px; line-height: 22px; font-weight: 600; }
+}
