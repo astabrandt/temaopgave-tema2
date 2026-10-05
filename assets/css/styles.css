@@ -155,7 +155,12 @@ h3, .h3 {
   background: url("../images/hero.png") center 31% / cover no-repeat;
   display: flex;
   align-items: flex-start;
-  padding: 218px 0 0 82px;
+  padding-top: 218px;
+}
+
+.hero-inner {
+  width: var(--content);
+  margin: 0 auto;
 }
 
 .hero-title {
@@ -451,7 +456,7 @@ input[type="text"] { width: 100%; height: 46px; border: 1.5px solid var(--stroke
 
   .hero {
     min-height: 263px;
-    padding: 103px 0 0 31px;
+    padding-top: 103px;
     background-position: center 18%;
   }
   .hero-title { font-size: 48px; line-height: 44px; }
