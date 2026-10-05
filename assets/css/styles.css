@@ -228,7 +228,7 @@ h3, .h3 {
 
 .cta-blue {
   background: var(--skyblue-subtle);
-  color: var(--coal-1);
+  color: var(--skyblue-darker);
   min-height: 39px;
   padding: 10px 24px;
   font-weight: 700;
@@ -236,7 +236,8 @@ h3, .h3 {
 }
 
 .link-cta {
-  color: var(--rasberry-main);
+  color: var(--skyblue-darker);
+);
   font-size: 20px;
   line-height: 26px;
   white-space: nowrap;
@@ -429,28 +430,9 @@ input[type="text"] { width: 100%; height: 46px; border: 1.5px solid var(--stroke
     height: 2px;
     background: var(--coal-1);
   }
-  .menu-toggle .menu-toggle-line,
-  .menu-toggle::before,
-  .menu-toggle::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 52px;
-    height: 2px;
-    background: var(--coal-1);
-  }
-
-  .menu-toggle::before {
-    top: 10px;
-  }
-
-  .menu-toggle .menu-toggle-line {
-    top: 22px;
-  }
-
-  .menu-toggle::after {
-    top: 34px;
-  }
+  .menu-toggle::before { top: 10px; }
+  .menu-toggle span { top: 22px; }
+  .menu-toggle::after { top: 34px; }
   .mobile-drawer {
     display: block;
     position: fixed;
@@ -515,7 +497,7 @@ input[type="text"] { width: 100%; height: 46px; border: 1.5px solid var(--stroke
   .material .text-block p:last-child { order: 2; margin-top: 0; }
   .material .image-card { order: 3; height: 206px; width: 100%; margin-top: 0; margin-left: 0; }
   .sarah-split { flex-direction: column; gap: 19px; }
-  .sarah-split .image-card { order: 1; height: 206px; width: 100%; margin-left: 0;}
+  .sarah-split .image-card { order: 1; height: 206px; width: 100%; margin-left: 0}
   .sarah-split .text-block { order: 2; display: flex; flex-direction: column; gap: 19px; }
   .sarah-split .text-block h2 { margin-bottom: 0; }
   .sarah-split .text-block p { margin-top: 0; }
