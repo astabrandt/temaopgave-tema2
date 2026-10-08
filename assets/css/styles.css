@@ -4,6 +4,7 @@
   --cream-dark: #d2a360;
   --cream-subtle: #fff2db;
   --rasberry-main: #fd8668;
+  --cta-pink: #ffa7a7;
   --rasberry-dark: #c25236;
   --cherry-light: #eaa695;
   --cherry-subtle: #fed0c4;
@@ -11,6 +12,7 @@
   --skyblue-darker: #435f93;
   --skyblue-light: #a5c5ff;
   --skyblue-subtle: #c4d9ff;
+  --package-blue: #e0ebff;
   --coal-1: #19191a;
   --coal-2: #6b7588;
   --coal-3: #626b77;
@@ -194,6 +196,7 @@ h3, .h3 {
 .text-block p + p { margin-top: 26px; }
 
 .image-card {
+  margin: 0;
   border-radius: 20px;
   overflow: hidden;
 }
@@ -215,20 +218,20 @@ h3, .h3 {
 
 .cta-pink {
   align-self: flex-start;
-  background: var(--rasberry-main);
-  color: var(--coal-1);
-  min-height: 46px;
+  background: var(--cta-pink);
+  color: #3d3d3d;
+  min-height: 39px;
   padding: 10px 24px;
-  font-size: 20px;
-  line-height: 26px;
+  font-size: 16px;
+  line-height: 1.18;
 }
 
 .cta-small {
-  background: var(--rasberry-main);
+  background: var(--cta-pink);
   color: #3d3d3d;
-  min-height: 29px;
-  padding: 5px 24px;
-  font-weight: 700;
+  min-height: 39px;
+  padding: 10px 24px;
+  font-weight: 400;
   font-size: 16px;
 }
 
@@ -280,9 +283,18 @@ h3, .h3 {
 
 .course-bubble h3 { position: relative; z-index: 1; }
 .course-copy { display: flex; flex-direction: column; gap: 24px; font-size: 20px; line-height: 26px; }
+.course-feature.right .course-copy { width: 426px; align-items: flex-end; justify-self: end; }
+.course-feature.right .cta { align-self: flex-end; }
 
-.testimonials { padding: 0 0 60px; overflow: hidden; }
-.testimonials h2 { text-align: center; margin-bottom: 42px; }
+.testimonials { width: min(100% - 160px, 1484px); padding: 0 0 60px; overflow: hidden; }
+.testimonials h2 {
+  min-height: 72px;
+  margin-bottom: 42px;
+  font-size: 64px;
+  line-height: 66px;
+  text-align: center;
+  white-space: nowrap;
+}
 .testimonial-row { display: flex; gap: 26px; overflow-x: auto; padding-bottom: 4px; }
 
 .testimonial-card {
@@ -290,11 +302,17 @@ h3, .h3 {
   height: 578px;
   background: var(--rasberry-main);
   color: white;
-  padding: 142px 60px 60px;
+  padding: 10px 10px 10px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .testimonial-card blockquote {
-  margin: 0 0 46px;
+  width: 316px;
+  max-width: 100%;
+  margin: 0 0 50px;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 32px;
   line-height: 34px;
@@ -303,6 +321,7 @@ h3, .h3 {
 
 .testimonial-card cite {
   display: block;
+  padding-top: 10px;
   font-style: normal;
   font-family: "Poppins", Arial, sans-serif;
   font-size: 20px;
@@ -312,6 +331,7 @@ h3, .h3 {
 .testimonial-card span {
   display: block;
   margin-top: 4px;
+  padding-bottom: 10px;
   color: var(--coal-1);
   font-size: 16px;
 }
@@ -353,21 +373,41 @@ h3, .h3 {
 .book-image { height: 1082px; border-radius: 20px; overflow: hidden; }
 .book-image img { width: 100%; height: 100%; object-fit: cover; }
 
-.material-top { display: grid; grid-template-columns: 545px 1fr; gap: 82px; align-items: center; }
+.material-top { display: grid; grid-template-columns: 545px 653px; gap: 82px; align-items: center; }
+.material-top .text-block { display: flex; flex-direction: column; gap: 24px; justify-content: center; }
+.material-top .text-block h1 { margin-bottom: 0; }
+.material-top ul { margin: 0; padding-left: 30px; }
+.material-top li + li { margin-top: 24px; }
 .material-top .image-card { height: 648px; }
-.packages { margin-top: 137px; }
-.package-grid { margin-top: 42px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 120px; align-items: start; }
+.packages { min-height: 517px; margin-top: 42px; padding: 24px; background: var(--package-blue); border-radius: 20px; box-shadow: 0 .5px .5px rgba(0,0,0,.25); }
+.packages > h2 { font-size: 64px; line-height: 66px; }
+.package-grid { margin-top: 42px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 125px; align-items: start; }
 .package-card { display: flex; flex-direction: column; gap: 12px; font-size: 20px; line-height: 26px; }
-.brands { margin-top: 137px; display: grid; grid-template-columns: 629px 1fr; gap: 27px; align-items: start; }
+.package-card h3 { font-size: 48px; line-height: 44px; }
+.package-card .cta { align-self: flex-start; margin-top: 12px; }
+.brands { margin-top: 42px; display: grid; grid-template-columns: 629px 1fr; gap: 27px; align-items: start; }
 .brands .image-card { height: 864px; }
 .brand-list-text { font-size: 20px; line-height: 26px; }
-.brand-list-text h2 { margin-bottom: 26px; }
+.brand-list-text h2 { margin-bottom: 26px; font-size: 64px; line-height: 66px; }
+.brand-list-text h3 { margin-top: 26px; }
+.brand-list-text p, .brand-list-text ul { margin-top: 20px; margin-bottom: 0; }
 
-.about-page { display: grid; grid-template-columns: minmax(420px, 624px) 1fr; gap: 18px; align-items: start; }
-.about-page .image-card { height: 718px; }
+.about-page { width: min(calc(100% - 85px), 1355px); margin-left: max(30px, calc((100% - 1280px) / 2)); margin-right: 0; display: grid; grid-template-columns: 727px 610px; gap: 18px; align-items: start; }
+.about-page .image-card { height: 1711px; }
 .about-text { max-width: 610px; font-size: 20px; line-height: 26px; }
 .about-text h1 { margin-bottom: 24px; }
-.about-text p + p { margin-top: 26px; }
+.about-copy { width: 538px; }
+.about-copy p { margin: 0; }
+.about-copy .about-paragraph-gap { margin-top: 26px; }
+.about-copy h2 { margin: 26px 0 0; font-size: 32px; line-height: 34px; }
+.about-copy h3 { margin: 26px 0 26px; font-family: "Poppins", Arial, sans-serif; font-size: 20px; line-height: 26px; }
+.about-cta { margin-top: 24px; align-self: flex-start; }
+
+@media (min-width: 901px) {
+  .brands .image-card img { object-position: 9% center; }
+  .about-page .image-card img { object-position: 56.32% center; }
+  .about-text { width: 610px; }
+}
 
 .checkout { display: grid; grid-template-columns: 572px 720px; justify-content: center; align-items: start; }
 .payment-panel { padding: 48px; border-radius: 8px; }
@@ -398,8 +438,7 @@ input[type="text"] { width: 100%; height: 46px; border: 1.5px solid var(--stroke
   }
   .desktop-nav, .header-actions { display: none; }
   .site-header .brand-text {
-    display: flex;
-    width: 148px;
+    display: none;
   }
   .site-header .brand-name {
     font-size: 24px;
@@ -413,24 +452,13 @@ input[type="text"] { width: 100%; height: 46px; border: 1.5px solid var(--stroke
   .brand-mark .sw { inset: 14px auto auto 11px; width: 24px; height: 19px; }
   .menu-toggle {
     display: block;
-    width: 52px;
-    height: 46px;
+    width: 38px;
+    height: 24px;
     border: 0;
-    background: transparent;
+    background: url("../images/burger-menu.svg") center / 38px 24px no-repeat;
     padding: 0;
     position: relative;
   }
-  .menu-toggle span, .menu-toggle::before, .menu-toggle::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 52px;
-    height: 2px;
-    background: var(--coal-1);
-  }
-  .menu-toggle::before { top: 10px; }
-  .menu-toggle span { top: 22px; }
-  .menu-toggle::after { top: 34px; }
   .mobile-drawer {
     display: block;
     position: fixed;
@@ -488,22 +516,24 @@ input[type="text"] { width: 100%; height: 46px; border: 1.5px solid var(--stroke
   .course-bubble { width: 295px; height: 295px; padding: 51px; }
   .course-bubble h3 { font-size: 20px; line-height: 22px; font-weight: 600; }
   .course-copy { display: none; }
+  .cta-pink, .cta-small { min-height: 30px; padding: 5px 24px; font-size: 14px; line-height: 20px; }
   .material { gap: 16px; }
   .material .text-block { display: contents; }
-  .material .text-block h2,
-  .material .text-block p:not(:last-child) { display: block; }
-  .material .text-block p:last-child { order: 2; margin-top: 0; }
-  .material .image-card { order: 3; height: 206px; width: 100%; margin-top: 0; margin-left: 0; }
+  .material .text-block h2 { display: block; order: 0; min-height: 44px; margin-bottom: 0; line-height: 34px; }
+  .material .image-card { order: 1; height: 206px; width: 100%; margin-top: 0; margin-left: 0; }
+  .material .text-block p { display: block; order: 2; margin-top: 0; }
+  .material .text-block p + p { margin-top: 4px; }
+  .material .text-block p:last-child { order: 3; }
   .sarah-split { flex-direction: column; gap: 19px; }
   .sarah-split .image-card { order: 1; height: 206px; width: 100%; margin-left: 0}
   .sarah-split .text-block { order: 2; display: flex; flex-direction: column; gap: 19px; }
   .sarah-split .text-block h2 { margin-bottom: 0; }
   .sarah-split .text-block p { margin-top: 0; }
-  .testimonials { padding-bottom: 30px; }
-  .testimonials h2 { margin-bottom: 42px; }
+  .testimonials { width: var(--content); padding-bottom: 30px; }
+  .testimonials h2 { min-height: 44px; margin-bottom: 42px; font-size: 48px; line-height: 44px; }
   .testimonial-row { margin-inline: -30px; padding-inline: 30px; }
-  .testimonial-card { flex-basis: 239px; height: 227px; padding: 42px 28px; }
-  .testimonial-card blockquote { font-size: 16px; line-height: 18px; font-weight: 600; margin-bottom: 7px; }
+  .testimonial-card { flex-basis: 239px; height: 227px; padding: 42px 28px; justify-content: flex-start; }
+  .testimonial-card blockquote { width: 183px; font-size: 16px; line-height: 18px; font-weight: 600; margin-bottom: 7px; }
   .testimonial-card cite, .testimonial-card span { font-size: 14px; line-height: 20px; font-weight: 400; }
   .testimonial-card cite { color: var(--offwhite-1); }
 
@@ -520,14 +550,34 @@ input[type="text"] { width: 100%; height: 46px; border: 1.5px solid var(--stroke
   .footer-socials { display: grid; grid-template-columns: repeat(2, 24px); gap: 13px; margin-top: 4px; }
 
   .page-main { padding: 24px 0 48px; }
+  .book-layout h1 { max-width: 224px; font-size: 48px; line-height: 44px; }
   .course-list { margin-top: 24px; gap: 24px; }
-  .course-row { grid-template-columns: 1fr; gap: 8px; font-size: 14px; line-height: 20px; }
+  .course-row { grid-template-columns: 1fr; gap: 12px; font-size: 14px; line-height: 20px; }
+  .course-row .cta { margin-top: 10px; }
   .book-image { display: none; }
   .material-top .image-card, .brands .image-card, .about-page .image-card { height: 259px; width: 100%; }
-  .package-grid { display: flex; flex-direction: column; gap: 24px; margin-top: 14px; }
+  .material-top { grid-template-columns: none; }
+  .material-top .text-block { gap: 24px; }
+  .material-top ul { font-size: 14px; line-height: 20px; }
+  .material-top li + li { margin-top: 0; }
+  .packages { min-height: 0; padding: 10px; border-radius: 10px; box-shadow: 0 .5px 2px rgba(0,0,0,.25); }
+  .packages h2 { font-size: 48px; line-height: 44px; }
+  .package-grid { display: flex; flex-direction: column; gap: 13px; margin-top: 14px; }
+  .package-card { gap: 12px; }
+  .package-card h3 { font-size: 24px; line-height: 44px; }
+  .package-card .cta { margin-top: 0; }
   .packages, .brands { margin-top: 42px; }
-  .brands .image-card { order: 2; }
+  .brands { gap: 20px; }
+  .brands .image-card { order: 0; }
+  .brand-list-text h2 { margin-bottom: 20px; font-size: 24px; line-height: 44px; }
+  .brand-list-text h3 { margin-top: 20px; font-size: 20px; line-height: 22px; font-weight: 600; }
+  .brand-list-text h3:nth-of-type(2) { font-family: "Poppins", Arial, sans-serif; font-size: 14px; line-height: 20px; font-weight: 400; }
+  .brand-list-text p, .brand-list-text ul { margin-top: 20px; }
+  .about-page { width: var(--content); margin: 0 auto; }
   .about-page .image-card { height: 332px; margin-inline: -30px; width: calc(100% + 60px); border-radius: 0; }
+  .about-copy { width: 100%; }
+  .about-copy h2 { font-size: 24px; line-height: 26px; }
+  .about-copy h3 { font-size: 14px; line-height: 20px; }
   .checkout { gap: 0; }
   .summary-panel, .payment-panel { padding: 48px 32px; width: 100%; min-height: 0; }
   .summary-panel { background: #fff; border: 0; order: -1; }
