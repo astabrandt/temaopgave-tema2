@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://astabrandt.dk/tema3-seo/sitemap.xml
