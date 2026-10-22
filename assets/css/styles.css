@@ -677,7 +677,9 @@ input[type="text"] { width: 100%; height: 46px; border: 1.5px solid var(--coal-3
   .footer-left .brand-mark .sw { inset: 20px auto auto 16px; width: 34px; height: 27px; }
   .footer-left .brand-text { display: flex; width: 148px; }
   .footer-logo-large { display: none; }
-  .footer-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 43px; width: 100%; align-items: start; }
+  .footer-columns { display: grid; grid-template-columns: minmax(0, 1fr) 72px; gap: 43px; width: min(100%, 318px); align-items: start; }
+  .footer-col { min-width: 0; }
+  .footer-col a, .footer-item { overflow-wrap: anywhere; }
   .footer-title { font-family: "Poppins", Arial, sans-serif; font-size: 14px; }
   .footer-item { font-size: 12px; }
   .footer-socials { display: grid; grid-template-columns: repeat(2, 24px); gap: 13px; margin-top: 4px; }
