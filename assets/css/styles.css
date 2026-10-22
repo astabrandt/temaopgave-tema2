@@ -366,6 +366,122 @@ h3, .h3 {
 .footer-socials { display: none; }
 
 .page-main { padding: 42px 0 76px; }
+
+.breadcrumb-bar {
+  width: var(--content);
+  margin: 0 auto;
+  padding-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  content: "/";
+  margin-left: 8px;
+  color: var(--coal-2);
+}
+
+.breadcrumbs a,
+.breadcrumb-faq {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.breadcrumb-faq {
+  margin-left: auto;
+}
+
+.faq-page {
+  padding-top: 24px;
+}
+
+.faq-page h1 {
+  margin-bottom: 24px;
+}
+
+.faq-intro {
+  max-width: 760px;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.faq-groups {
+  display: grid;
+  gap: 56px;
+  margin-top: 56px;
+}
+
+.faq-group h2 {
+  margin-bottom: 24px;
+}
+
+.faq-item {
+  border-top: 1px solid var(--stroke);
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--stroke);
+}
+
+.faq-item summary {
+  min-height: 56px;
+  padding: 16px 42px 16px 0;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  top: 14px;
+  right: 8px;
+  font-size: 26px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item summary:focus-visible {
+  outline: 3px solid var(--sky-blue-main);
+  outline-offset: 3px;
+}
+
+.faq-answer {
+  max-width: 760px;
+  padding: 0 42px 20px 0;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.faq-answer a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .book-layout { display: grid; grid-template-columns: 626px 1fr; gap: 26px; align-items: start; }
 .course-list { margin-top: 85px; display: flex; flex-direction: column; gap: 56px; }
 .course-row { display: grid; grid-template-columns: 216px 1fr; gap: 111px; font-size: 20px; line-height: 26px; }
@@ -550,6 +666,56 @@ input[type="text"] { width: 100%; height: 46px; border: 1.5px solid var(--stroke
   .footer-socials { display: grid; grid-template-columns: repeat(2, 24px); gap: 13px; margin-top: 4px; }
 
   .page-main { padding: 24px 0 48px; }
+  .breadcrumb-bar {
+    width: var(--content);
+    padding-top: 12px;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .breadcrumb-faq {
+    margin-left: 0;
+  }
+
+  .faq-page {
+    padding-top: 18px;
+  }
+
+  .faq-page h1 {
+    margin-bottom: 16px;
+  }
+
+  .faq-intro,
+  .faq-item summary,
+  .faq-answer {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .faq-groups {
+    gap: 36px;
+    margin-top: 36px;
+  }
+
+  .faq-group h2 {
+    margin-bottom: 16px;
+  }
+
+  .faq-item summary {
+    min-height: 52px;
+    padding: 16px 36px 16px 0;
+  }
+
+  .faq-item summary::after {
+    top: 13px;
+    right: 4px;
+  }
+
+  .faq-answer {
+    padding: 0 36px 16px 0;
+  }
+
   .book-layout h1 { max-width: 224px; font-size: 48px; line-height: 44px; }
   .course-list { margin-top: 24px; gap: 24px; }
   .course-row { grid-template-columns: 1fr; gap: 12px; font-size: 14px; line-height: 20px; }
